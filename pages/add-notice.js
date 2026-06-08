@@ -22,7 +22,7 @@ export default function AddNotice() {
 
   return (
     <Layout>
-      <h2 className="text-2xl font-bold mb-4">
+      <h2 className="text-2xl font-bold mb-4 text-gray-800">
         Add New Notice
       </h2>
 

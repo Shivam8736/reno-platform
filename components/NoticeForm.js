@@ -35,7 +35,7 @@ export default function NoticeForm({ onSubmit, initialData = {} }) {
         placeholder="Notice Title"
         value={formData.title}
         onChange={handleChange}
-        className="w-full border p-3 rounded-lg"
+        className="w-full border p-3 rounded-lg font-bold text-gray-500 mb-6"
         required
       />
 
@@ -44,7 +44,7 @@ export default function NoticeForm({ onSubmit, initialData = {} }) {
         placeholder="Notice Description"
         value={formData.body}
         onChange={handleChange}
-        className="w-full border p-3 rounded-lg"
+        className="w-full border p-3 rounded-lg font-bold text-gray-500 mb-6"
         rows="4"
         required
       />
@@ -53,7 +53,7 @@ export default function NoticeForm({ onSubmit, initialData = {} }) {
         name="category"
         value={formData.category}
         onChange={handleChange}
-        className="w-full border p-3 rounded-lg"
+        className="w-full border p-3 rounded-lg font-bold text-gray-500 mb-6"
       >
         <option>Exam</option>
         <option>Event</option>
@@ -64,7 +64,7 @@ export default function NoticeForm({ onSubmit, initialData = {} }) {
         name="priority"
         value={formData.priority}
         onChange={handleChange}
-        className="w-full border p-3 rounded-lg"
+        className="w-full border p-3 rounded-lg font-bold text-gray-500 mb-6"
       >
         <option>Normal</option>
         <option>Urgent</option>
@@ -75,7 +75,7 @@ export default function NoticeForm({ onSubmit, initialData = {} }) {
         name="publishDate"
         value={formData.publishDate}
         onChange={handleChange}
-        className="w-full border p-3 rounded-lg"
+        className="w-full border p-3 rounded-lg font-bold text-gray-500 mb-6"
         required
       />
 
@@ -85,7 +85,7 @@ export default function NoticeForm({ onSubmit, initialData = {} }) {
         placeholder="Image URL (Optional)"
         value={formData.image}
         onChange={handleChange}
-        className="w-full border p-3 rounded-lg"
+        className="w-full border p-3 rounded-lg font-bold text-gray-500 mb-6"
       />
 
       <button

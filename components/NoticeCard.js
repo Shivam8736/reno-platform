@@ -1,16 +1,30 @@
+import Link from "next/link";
+
 export default function NoticeCard({ notice }) {
+  const handleDelete = async () => {
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this notice?"
+    );
+
+    if (!confirmDelete) return;
+
+    const res = await fetch(`/api/notices/${notice.id}`, {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      alert("Notice Deleted Successfully");
+      window.location.reload();
+    } else {
+      alert("Delete Failed");
+    }
+  };
+
+
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-      
       {/* Notice Image */}
-      <img
-        src={
-          notice.image ||
-          "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
-        }
-        alt={notice.title}
-        className="w-full h-48 object-cover"
-      />
+     
 
       <div className="p-5">
         {/* Header */}
@@ -27,7 +41,7 @@ export default function NoticeCard({ notice }) {
         </div>
 
         {/* Body */}
-        <p className="text-gray-600 mb-4 line-clamp-3">
+        <p className="text-gray-600 mb-4">
           {notice.body}
         </p>
 
@@ -45,11 +59,17 @@ export default function NoticeCard({ notice }) {
 
         {/* Buttons */}
         <div className="flex gap-2">
-          <button className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+          <Link
+            href={`/edit/${notice.id}`}
+            className="flex-1 bg-blue-600 text-white py-2 rounded-lg text-center hover:bg-blue-700"
+          >
             Edit
-          </button>
+          </Link>
 
-          <button className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700">
+          <button
+            onClick={handleDelete}
+            className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700"
+          >
             Delete
           </button>
         </div>
