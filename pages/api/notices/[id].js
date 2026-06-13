@@ -29,7 +29,6 @@ export default async function handler(req, res) {
         category,
         priority,
         publishDate,
-        image,
       } = req.body;
 
       const updatedNotice = await prisma.notice.update({
@@ -42,7 +41,6 @@ export default async function handler(req, res) {
           category,
           priority,
           publishDate: new Date(publishDate),
-          image: image || null,
         },
       });
 
