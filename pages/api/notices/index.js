@@ -24,7 +24,6 @@ export default async function handler(req, res) {
         category,
         priority,
         publishDate,
-        image,
       } = req.body;
 
       if (!title || !body || !category || !priority || !publishDate) {
@@ -39,8 +38,7 @@ export default async function handler(req, res) {
           body,
           category,
           priority,
-          publishDate: new Date(publishDate),
-          image: image || null,
+          publishDate: new Date(publishDate)
         },
       });
 
